@@ -1,0 +1,410 @@
+object frmAltClientes: TfrmAltClientes
+  Left = 876
+  Height = 375
+  Top = 353
+  Width = 686
+  BorderStyle = bsDialog
+  Caption = 'Cadastro Cliente'
+  ClientHeight = 375
+  ClientWidth = 686
+  Color = 14803937
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Calibri'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 45
+    Top = 330
+    Width = 686
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 45
+    ClientWidth = 686
+    TabOrder = 0
+    object btnCancelar: TBitBtn
+      Left = 584
+      Height = 30
+      Top = 10
+      Width = 91
+      Anchors = [akTop, akRight]
+      Cancel = True
+      Caption = '&Cancelar'
+      Kind = bkCancel
+      ModalResult = 2
+      TabOrder = 0
+    end
+    object btnAplicar: TBitBtn
+      Left = 490
+      Height = 30
+      Top = 10
+      Width = 91
+      Anchors = [akTop, akRight]
+      Caption = '&Aplicar'
+      Default = True
+      Kind = bkYes
+      ModalResult = 6
+      TabOrder = 1
+    end
+    object btnPrimeiro: TSpeedButton
+      Left = 8
+      Height = 30
+      Top = 8
+      Width = 52
+      Caption = 'first'
+      Flat = True
+    end
+    object btnAnterior: TSpeedButton
+      Left = 72
+      Height = 30
+      Top = 8
+      Width = 52
+      Caption = 'ant'
+      Flat = True
+    end
+    object btnProximo: TSpeedButton
+      Left = 136
+      Height = 30
+      Top = 8
+      Width = 52
+      Caption = 'next'
+      Flat = True
+    end
+    object btnUltimo: TSpeedButton
+      Left = 200
+      Height = 30
+      Top = 8
+      Width = 52
+      Caption = 'last'
+      Flat = True
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 280
+    Top = 50
+    Width = 686
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Nome'
+      ClientHeight = 252
+      ClientWidth = 678
+      object Label1: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 38
+        Caption = 'Código'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 96
+        Height = 15
+        Top = 8
+        Width = 31
+        Caption = 'Nome'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 8
+        Height = 15
+        Top = 64
+        Width = 42
+        Caption = 'Apelido'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 8
+        Height = 15
+        Top = 112
+        Width = 50
+        Caption = 'CPF/CNPJ'
+        ParentColor = False
+      end
+      object edtNome: TEdit
+        Left = 96
+        Height = 23
+        Top = 29
+        Width = 288
+        TabOrder = 0
+      end
+      object edtCodigo: TEdit
+        Left = 8
+        Height = 23
+        Top = 29
+        Width = 80
+        TabOrder = 1
+      end
+      object Edit1: TEdit
+        Left = 75
+        Height = 23
+        Top = 256
+        Width = 52
+        TabOrder = 2
+        Text = 'Edit1'
+      end
+      object edtApelido: TEdit
+        Left = 8
+        Height = 23
+        Top = 80
+        Width = 320
+        TabOrder = 3
+      end
+      object edtCpfCnpj: TEdit
+        Left = 8
+        Height = 23
+        Top = 128
+        Width = 128
+        TabOrder = 4
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Residência/Sede'
+      ClientHeight = 252
+      ClientWidth = 678
+      object Label6: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 63
+        Caption = 'Logradouro'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 416
+        Height = 15
+        Top = 8
+        Width = 43
+        Caption = 'Número'
+        ParentColor = False
+      end
+      object Label8: TLabel
+        Left = 512
+        Height = 15
+        Top = 8
+        Width = 75
+        Caption = 'Complemento'
+        ParentColor = False
+      end
+      object Label9: TLabel
+        Left = 36
+        Height = 15
+        Top = 35
+        Width = 35
+        Caption = 'Bairro'
+        ParentColor = False
+      end
+      object Label10: TLabel
+        Left = 416
+        Height = 15
+        Top = 35
+        Width = 20
+        Caption = 'CEP'
+        ParentColor = False
+      end
+      object Label11: TLabel
+        Left = 15
+        Height = 15
+        Top = 64
+        Width = 56
+        Caption = 'Município'
+        ParentColor = False
+      end
+      object Label12: TLabel
+        Left = 392
+        Height = 15
+        Top = 64
+        Width = 37
+        Caption = 'Estado'
+        ParentColor = False
+      end
+      object GroupBox1: TGroupBox
+        Left = 8
+        Height = 130
+        Top = 120
+        Width = 664
+        Caption = 'Telefones'
+        ClientHeight = 110
+        ClientWidth = 660
+        TabOrder = 0
+        object DBGrid1: TDBGrid
+          Left = 8
+          Height = 100
+          Top = 0
+          Width = 536
+          Color = clWindow
+          Columns = <>
+          TabOrder = 0
+        end
+        object btnInserir: TSpeedButton
+          Left = 573
+          Height = 23
+          Top = 11
+          Width = 80
+          Caption = 'Inserir'
+          Flat = True
+          Images = frmClientes.imlMenu
+          ImageIndex = 2
+        end
+        object btnEditar: TSpeedButton
+          Left = 573
+          Height = 23
+          Top = 43
+          Width = 80
+          Caption = 'Editar'
+          Flat = True
+          Images = frmClientes.imlMenu
+          ImageIndex = 1
+        end
+        object btnExcluir: TSpeedButton
+          Left = 573
+          Height = 23
+          Top = 74
+          Width = 80
+          Caption = 'Excluir'
+          Flat = True
+          Images = frmClientes.imlMenu
+          ImageIndex = 11
+        end
+      end
+      object edtLogradouro: TEdit
+        Left = 78
+        Height = 23
+        Top = 5
+        Width = 328
+        TabOrder = 1
+      end
+      object edtNumero: TEdit
+        Left = 464
+        Height = 23
+        Top = 5
+        Width = 41
+        TabOrder = 2
+      end
+      object edtComplemento: TEdit
+        Left = 592
+        Height = 23
+        Top = 5
+        Width = 80
+        TabOrder = 3
+      end
+      object edtCep: TEdit
+        Left = 440
+        Height = 23
+        Top = 32
+        Width = 80
+        TabOrder = 4
+      end
+      object edtBairro: TEdit
+        Left = 78
+        Height = 23
+        Top = 32
+        Width = 328
+        TabOrder = 5
+      end
+      object edtMunicipio: TEdit
+        Left = 78
+        Height = 23
+        Top = 61
+        Width = 306
+        TabOrder = 6
+      end
+      object cbxUf: TComboBox
+        Left = 432
+        Height = 23
+        Top = 61
+        Width = 56
+        ItemHeight = 15
+        Items.Strings = (
+          'AC'
+          'AL'
+          'AP'
+          'AM'
+          'BA'
+          'CE'
+          'DF'
+          'ES'
+          'GO'
+          'MA'
+          'MT'
+          'MS'
+          'MG'
+          'PA'
+          'PB'
+          'PR'
+          'PE'
+          'PI'
+          'RJ'
+          'RN'
+          'RS'
+          'RO'
+          'RR'
+          'SC'
+          'SP'
+          'SE'
+          'TO'
+        )
+        TabOrder = 7
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 686
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 686
+    TabOrder = 2
+    object Label5: TLabel
+      Left = 52
+      Height = 18
+      Top = 17
+      Width = 7
+      Caption = '|'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -15
+      Font.Name = 'Calibri'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText2: TLabel
+      Left = 64
+      Height = 1
+      Top = 17
+      Width = 1
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -15
+      Font.Name = 'Calibri'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object imgCadastros: TImageList
+    Height = 25
+    Width = 25
+    Left = 288
+    Top = 244
+  end
+  object bufClientes: TBufDataset
+    FieldDefs = <>
+    Left = 407
+    Top = 244
+  end
+end

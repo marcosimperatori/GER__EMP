@@ -1,0 +1,50 @@
+object frmRelatorio: TfrmRelatorio
+  Left = 802
+  Height = 181
+  Top = 444
+  Width = 228
+  BorderStyle = bsDialog
+  Caption = 'Relatório'
+  ClientHeight = 181
+  ClientWidth = 228
+  Color = 14803937
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object rgpOpcaoRelatorio: TRadioGroup
+    Left = 16
+    Height = 105
+    Top = 8
+    Width = 185
+    AutoFill = True
+    Caption = 'Selecione'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 85
+    ClientWidth = 181
+    ItemIndex = 0
+    Items.Strings = (
+      'Apenas registro corrente'
+      'Todos os registros'
+    )
+    TabOrder = 0
+  end
+  object btnGerar: TBitBtn
+    Left = 72
+    Height = 30
+    Top = 136
+    Width = 75
+    Caption = 'Gerar'
+    OnClick = btnGerarClick
+    TabOrder = 1
+  end
+  object bufTemporario: TBufDataset
+    FieldDefs = <>
+    Left = 168
+    Top = 80
+  end
+end

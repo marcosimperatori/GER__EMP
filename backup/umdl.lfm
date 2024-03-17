@@ -1,0 +1,32 @@
+object dmGerEmp: TdmGerEmp
+  OldCreateOrder = False
+  Height = 510
+  HorizontalOffset = 915
+  VerticalOffset = 303
+  Width = 687
+  object conexao: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    TransactIsolationLevel = tiReadCommitted
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 3050
+    Database = 'C:\Users\marco\Documents\Projetos Lazarus\GER__EMP\DADOS.FDB'
+    User = 'SYSDBA'
+    Password = '290563'
+    Protocol = 'firebird-3.0'
+    LibraryLocation = 'C:\Users\marco\Documents\Projetos Lazarus\geremp\fbclient.dll'
+    Left = 48
+    Top = 16
+  end
+  object qryClientes: TZQuery
+    Connection = conexao
+    Params = <>
+    Left = 48
+    Top = 96
+  end
+end

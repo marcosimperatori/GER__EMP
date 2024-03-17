@@ -1,0 +1,10 @@
+inherited frmAltClientes: TfrmAltClientes
+  Left = 910
+  Top = 390
+  Caption = 'Cadastro de Cliente'
+  object bufClientes: TBufDataset[4]
+    FieldDefs = <>
+    Left = 471
+    Top = 244
+  end
+end
