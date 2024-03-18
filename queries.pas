@@ -54,6 +54,16 @@ const
 
   //----------------  query´s produtos --------------------------
 
+  listarProdutos = 'SELECT p.* FROM produtos p';
+
+  insereProduto = 'INSERT INTO produtos(nome,preco_venda_normal,preco_ultima_compra, preco_venda_promocao,' +
+    'estoque) VALUES(:nome,:pvn,:puc,:pvp,:estoque)';
+
+  atualizaProduto = 'UPDATE produtos SET nome=:nome,preco_venda_normal=:pvn,preco_ultima_compra=:puc,' +
+    'preco_venda_promocao=:pvp,estoque=:estoque';
+
+  deletarProduto = 'DELETE FROM produtos p WHERE p.id=:id';
+
 
 implementation
 

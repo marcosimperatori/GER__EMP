@@ -33,6 +33,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 2
       Caption = 'Produtos'
       ImageIndex = 1
+      OnClick = btnProdutosClick
     end
     object btnPedidos: TToolButton
       Left = 173

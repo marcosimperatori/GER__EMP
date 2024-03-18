@@ -107,6 +107,14 @@
         <Filename Value="ualttelefones.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAltTelefones"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ucadprodutos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmProdutos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

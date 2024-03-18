@@ -28,6 +28,7 @@ type
     btnPedidos: TToolButton;
     btnRelatorios: TToolButton;
     btnConfiguracoes: TToolButton;
+    procedure btnProdutosClick(Sender: TObject);
     procedure mniClientesClick(Sender: TObject);
     procedure mniFornecedoresClick(Sender: TObject);
   private
@@ -45,13 +46,23 @@ implementation
 {$R *.lfm}
 
 uses
-  ucadclientes, ucadfornecedores;
+  ucadclientes, ucadfornecedores, ucadprodutos;
 
 { TfrmPrincipal }
 
 procedure TfrmPrincipal.mniClientesClick(Sender: TObject);
 begin
   with TfrmClientes.create(self) do
+  try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+procedure TfrmPrincipal.btnProdutosClick(Sender: TObject);
+begin
+  with TfrmProdutos.create(self) do
   try
     ShowModal;
   finally
