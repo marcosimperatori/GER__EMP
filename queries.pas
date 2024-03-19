@@ -56,11 +56,11 @@ const
 
   listarProdutos = 'SELECT p.* FROM produtos p';
 
-  insereProduto = 'INSERT INTO produtos(nome,preco_venda_normal,preco_ultima_compra, preco_venda_promocao,' +
-    'estoque) VALUES(:nome,:pvn,:puc,:pvp,:estoque)';
+  insereProduto = 'INSERT INTO produtos(nome,preco_venda_promocao,preco_venda_normal)' +
+    ' VALUES(:nome,:pvp,:pvn)';
 
-  atualizaProduto = 'UPDATE produtos SET nome=:nome,preco_venda_normal=:pvn,preco_ultima_compra=:puc,' +
-    'preco_venda_promocao=:pvp,estoque=:estoque';
+  atualizaProduto = 'UPDATE produtos SET nome=:nome,preco_venda_normal=:pvn,' +
+    'preco_venda_promocao=:pvp WHERE id=:id';
 
   deletarProduto = 'DELETE FROM produtos p WHERE p.id=:id';
 

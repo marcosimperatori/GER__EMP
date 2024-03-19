@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, zcomponent, uprincipal, ualtfornecedor, umdl, utilitarios,
+  Forms, rxnew, zcomponent, uprincipal, ualtfornecedor, umdl, utilitarios,
   queries, ucadfornecedores, ubusca, uselecionar, lazreportpdfexport,
   uprepararelatorio, ualttelefones, ucadprodutos
   { you can add units after this };

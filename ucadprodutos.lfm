@@ -1,12 +1,12 @@
 object frmProdutos: TfrmProdutos
-  Left = 940
+  Left = 898
   Height = 394
-  Top = 360
-  Width = 717
+  Top = 343
+  Width = 789
   BorderStyle = bsDialog
   Caption = 'Cadastro de Produtos'
   ClientHeight = 394
-  ClientWidth = 717
+  ClientWidth = 789
   Color = 14803937
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -22,7 +22,7 @@ object frmProdutos: TfrmProdutos
     Left = 0
     Height = 30
     Top = 0
-    Width = 717
+    Width = 789
     ButtonHeight = 30
     ButtonWidth = 40
     Caption = 'ToolBar1'
@@ -70,7 +70,7 @@ object frmProdutos: TfrmProdutos
     Left = 0
     Height = 40
     Top = 30
-    Width = 717
+    Width = 789
     ButtonHeight = 40
     ButtonWidth = 40
     Caption = 'ToolBar2'
@@ -145,13 +145,14 @@ object frmProdutos: TfrmProdutos
     Left = 0
     Height = 282
     Top = 70
-    Width = 717
+    Width = 789
     Align = alClient
     Color = clWindow
     Columns = <    
       item
         SizePriority = 0
         Title.Caption = 'Código'
+        Width = 55
         FieldName = 'id'
       end    
       item
@@ -165,7 +166,7 @@ object frmProdutos: TfrmProdutos
         SizePriority = 0
         Title.Alignment = taRightJustify
         Title.Caption = 'Estoque'
-        Width = 100
+        Width = 70
         FieldName = 'estoque'
       end    
       item
@@ -173,11 +174,27 @@ object frmProdutos: TfrmProdutos
         SizePriority = 0
         Title.MultiLine = True
         Title.Caption = 'Preço última compra'
-        Width = 100
+        Width = 120
         FieldName = 'preco_ultima_compra'
+        DisplayFormat = '#,###0.00'
       end    
       item
-        Title.Caption = 'Title'
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Preço venda normal'
+        Width = 120
+        FieldName = 'preco_venda_normal'
+        DisplayFormat = '#,###0.00'
+      end    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Preço venda promocional'
+        Width = 150
+        FieldName = 'preco_venda_promocao'
+        DisplayFormat = '#,###0.00'
       end>
     DataSource = dsCadastros
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit]
@@ -189,14 +206,14 @@ object frmProdutos: TfrmProdutos
     Left = 0
     Height = 42
     Top = 352
-    Width = 717
+    Width = 789
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 42
-    ClientWidth = 717
+    ClientWidth = 789
     TabOrder = 3
     object btnSair: TBitBtn
-      Left = 632
+      Left = 704
       Height = 30
       Top = 5
       Width = 75

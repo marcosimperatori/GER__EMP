@@ -19,10 +19,14 @@ type
     procedure btnGerarClick(Sender: TObject);
   private
     FRegistro: integer;
+    FRelatorio: String;
+    FTabela: String;
     procedure RelatorioIndividual;
     procedure RelatorioCompleto;
   public
     property RegistroAtual: integer read FRegistro write FRegistro;
+    property NomeTabela: String read FTabela write FTabela;
+    property NomeRelatorio: String read FRelatorio write FRelatorio;
   end;
 
 var
@@ -51,7 +55,7 @@ begin
     Screen.Cursor := crHourGlass;
     Position := poOwnerFormCenter;
     BorderStyle := bsSizeable;
-    RelatorioCompleto(bufTemporario, 'rel_pessoas');
+    RelatorioCompleto(bufTemporario, NomeRelatorio);
     Screen.Cursor := crDefault;
     ShowModal;
   finally
@@ -68,7 +72,7 @@ begin
   try
     with qr do
     begin
-      sql.Text := 'select p.* from pessoas p where p.id = :id';
+      sql.Text := format('select p.* from %s p where p.id = :id',[NomeTabela]);
       ParamByName('id').AsInteger := RegistroAtual;
       Open;
       if not IsEmpty then
@@ -77,7 +81,7 @@ begin
         try
           Position := poOwnerFormCenter;
           BorderStyle := bsSizeable;
-          RelatorioBasico(qr, 'rel_pessoas');
+          RelatorioBasico(qr, NomeRelatorio);
           Screen.Cursor := crDefault;
           ShowModal;
         finally

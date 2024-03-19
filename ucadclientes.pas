@@ -114,6 +114,8 @@ procedure TfrmClientes.actRelatoriosExecute(Sender: TObject);
 begin
   with TfrmRelatorio.Create(self) do
   try
+    NomeTabela:= 'pessoas';
+    NomeRelatorio:='rel_pessoas';
     RegistroAtual:= bufCadastros.FieldByName('id').AsInteger;
     bufTemporario.CopyFromDataset(bufCadastros);
     ShowModal;
@@ -167,6 +169,7 @@ end;
 
 procedure TfrmClientes.actAtualizarExecute(Sender: TObject);
 begin
+  qrConsulta.SQL.Text:= listarClientes;
   Listar;
 end;
 

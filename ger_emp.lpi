@@ -29,6 +29,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="rxnew"/>
+      </Item>
+      <Item>
         <PackageName Value="lazreportpdfexport"/>
       </Item>
       <Item>
@@ -154,6 +157,9 @@
       </Item>
       <Item>
         <Name Value="EReadError"/>
+      </Item>
+      <Item>
+        <Name Value="EConvertError"/>
       </Item>
     </Exceptions>
   </Debugging>

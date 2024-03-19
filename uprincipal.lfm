@@ -8,6 +8,7 @@ object frmPrincipal: TfrmPrincipal
   ClientHeight = 125
   ClientWidth = 736
   Color = 14803937
+  OnCreate = FormCreate
   LCLVersion = '2.2.2.0'
   object ToolBar1: TToolBar
     Left = 0

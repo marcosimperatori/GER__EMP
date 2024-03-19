@@ -1,7 +1,7 @@
 object frmAltProdutos: TfrmAltProdutos
-  Left = 1057
+  Left = 1073
   Height = 242
-  Top = 399
+  Top = 394
   Width = 541
   BorderStyle = bsDialog
   Caption = 'Cadastro Produto'
@@ -25,33 +25,35 @@ object frmAltProdutos: TfrmAltProdutos
     BevelOuter = bvNone
     ClientHeight = 54
     ClientWidth = 541
-    TabOrder = 1
+    TabOrder = 8
     object btnCancelar: TBitBtn
       Left = 440
       Height = 30
-      Top = 10
+      Top = 8
       Width = 91
       Anchors = [akTop, akRight]
       Cancel = True
       Caption = '&Cancelar'
       Kind = bkCancel
-      ModalResult = 2
+      OnClick = btnCancelarClick
       TabOrder = 0
+      TabStop = False
     end
     object btnAplicar: TBitBtn
+      Tag = 1
       Left = 345
       Height = 30
-      Top = 10
+      Top = 8
       Width = 91
       Anchors = [akTop, akRight]
-      Caption = '&Aplicar'
-      Default = True
-      Kind = bkYes
-      ModalResult = 6
+      DefaultCaption = True
+      Kind = bkClose
+      ModalResult = 11
       OnClick = btnAplicarClick
       TabOrder = 1
     end
     object panNavegacao: TPanel
+      Tag = 1
       Left = 1
       Height = 40
       Top = 8
@@ -752,49 +754,72 @@ object frmAltProdutos: TfrmAltProdutos
     Height = 23
     Top = 24
     Width = 64
-    TabOrder = 2
+    Color = clBtnFace
+    Enabled = False
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 1
   end
   object edtNome: TEdit
+    Tag = 1
     Left = 152
     Height = 23
     Top = 24
     Width = 383
-    TabOrder = 3
+    OnClick = edtNomeClick
+    TabOrder = 2
   end
-  object Edit1: TEdit
-    Left = 80
-    Height = 23
-    Top = 80
-    Width = 144
-    TabOrder = 4
-  end
-  object Edit2: TEdit
-    Left = 248
-    Height = 23
-    Top = 80
-    Width = 114
-    TabOrder = 5
-  end
-  object Edit3: TEdit
-    Left = 409
-    Height = 23
-    Top = 80
-    Width = 127
-    TabOrder = 6
-  end
-  object Edit4: TEdit
+  object edtEstoque: TEdit
     Left = 80
     Height = 23
     Top = 136
     Width = 80
-    TabOrder = 7
+    Color = 12902911
+    NumbersOnly = True
+    OnKeyPress = edtEstoqueKeyPress
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 6
   end
-  object Edit5: TEdit
+  object cedPVP: TCurrencyEdit
+    Tag = 1
+    Left = 80
+    Height = 23
+    Top = 85
+    Width = 141
+    Alignment = taRightJustify
+    TabOrder = 3
+    OnClick = edtNomeClick
+  end
+  object cedPUC: TCurrencyEdit
+    Left = 248
+    Height = 23
+    Top = 85
+    Width = 114
+    Color = 12902911
+    ReadOnly = True
+    TabOrder = 4
+    TabStop = False
+  end
+  object cedPVN: TCurrencyEdit
+    Tag = 1
+    Left = 409
+    Height = 23
+    Top = 85
+    Width = 126
+    Alignment = taRightJustify
+    TabOrder = 5
+    OnClick = edtNomeClick
+  end
+  object cedEstoque_PVN: TCurrencyEdit
     Left = 248
     Height = 23
     Top = 136
     Width = 114
-    TabOrder = 8
+    Color = 12902911
+    ReadOnly = True
+    TabOrder = 7
+    TabStop = False
   end
   object bufClientes: TBufDataset
     FieldDefs = <>

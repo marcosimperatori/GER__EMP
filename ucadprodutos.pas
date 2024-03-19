@@ -114,6 +114,8 @@ procedure TfrmProdutos.actRelatoriosExecute(Sender: TObject);
 begin
   with TfrmRelatorio.Create(self) do
   try
+    NomeTabela:= 'produtos';
+    NomeRelatorio:='rel_produtos';
     RegistroAtual:= bufCadastros.FieldByName('id').AsInteger;
     bufTemporario.CopyFromDataset(bufCadastros);
     ShowModal;
@@ -128,6 +130,8 @@ begin
   try
     if ShowModal = mrOK then
     begin
+      if sqlComplemento.Contains('and') then
+        sqlComplemento:= StringReplace(sqlComplemento,'and','where',[rfReplaceAll,rfIgnoreCase]);
       qrConsulta.SQL.Clear;
       qrConsulta.SQL.Text := (listarProdutos + sqlComplemento);
       qrConsulta.ParamByName('chave').AsString:= paramBusca;
@@ -167,6 +171,7 @@ end;
 
 procedure TfrmProdutos.actAtualizarExecute(Sender: TObject);
 begin
+  qrConsulta.SQL.Text:= listarProdutos;
   Listar;
 end;
 
@@ -199,12 +204,12 @@ begin
   begin
     try
       qr := NovaQuery;
-      qr.SQL.Text:= deletarPessoa;
+      qr.SQL.Text:= deletarProduto;
       qr.ParamByName('id').AsInteger:= bufCadastros.FieldByName('id').AsInteger;
       try
         qr.ExecSQL;
         MessageDlg('Registro excluído com sucesso!', mtInformation, [mbOK],0);
-        qrConsulta.SQL.Text:= listarClientes;
+        qrConsulta.SQL.Text:= listarProdutos;
         actAtualizar.Execute;
       except
         MessageDlg('Não foi possível excluir o registro!', mtWarning, [mbOK],0);
