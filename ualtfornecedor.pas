@@ -69,8 +69,8 @@ type
     procedure btnPrimeiroClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
+    procedure edtApelidoClick(Sender: TObject);
     procedure edtCpfCnpjKeyPress(Sender: TObject; var Key: char);
-    procedure edtNomeClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -206,15 +206,15 @@ begin
   LocalizarRegistro(bufFornecedor.FieldByName('id').AsInteger);
 end;
 
+procedure TfrmAltFornecedor.edtApelidoClick(Sender: TObject);
+begin
+  ManipularCampos;
+end;
+
 procedure TfrmAltFornecedor.edtCpfCnpjKeyPress(Sender: TObject; var Key: char);
 begin
   if not (Key in ['0'..'9', #8, #13]) then
     Key := #0;
-end;
-
-procedure TfrmAltFornecedor.edtNomeClick(Sender: TObject);
-begin
-  ManipularCampos;
 end;
 
 procedure TfrmAltFornecedor.FormCreate(Sender: TObject);

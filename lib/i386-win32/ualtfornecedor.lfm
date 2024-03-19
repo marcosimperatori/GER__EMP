@@ -45,10 +45,9 @@ object frmAltFornecedor: TfrmAltFornecedor
       Top = 10
       Width = 91
       Anchors = [akTop, akRight]
-      Caption = '&Fechar'
-      Default = True
-      Kind = bkYes
-      ModalResult = 6
+      DefaultCaption = True
+      Kind = bkClose
+      ModalResult = 11
       OnClick = btnAplicarClick
       TabOrder = 1
     end
@@ -159,7 +158,7 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 29
         Width = 288
-        OnClick = edtNomeClick
+        OnClick = edtApelidoClick
         TabOrder = 1
       end
       object edtCodigo: TEdit
@@ -177,7 +176,7 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 80
         Width = 320
-        OnClick = edtNomeClick
+        OnClick = edtApelidoClick
         TabOrder = 2
       end
       object edtCpfCnpj: TEdit
@@ -186,11 +185,12 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 128
         Width = 128
-        OnClick = edtNomeClick
+        OnClick = edtApelidoClick
         OnKeyPress = edtCpfCnpjKeyPress
         TabOrder = 3
       end
       object rgpTipoPessoa: TRadioGroup
+        Tag = 1
         Left = 8
         Height = 56
         Top = 176
@@ -212,7 +212,6 @@ object frmAltFornecedor: TfrmAltFornecedor
           'Física'
           'Jurídica'
         )
-        OnClick = edtNomeClick
         TabOrder = 4
       end
     end
@@ -364,7 +363,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 5
         Width = 328
-        OnClick = edtNomeClick
         TabOrder = 1
       end
       object edtNumero: TEdit
@@ -373,7 +371,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 5
         Width = 41
-        OnClick = edtNomeClick
         TabOrder = 2
       end
       object edtComplemento: TEdit
@@ -382,7 +379,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 5
         Width = 80
-        OnClick = edtNomeClick
         TabOrder = 3
       end
       object edtCep: TEdit
@@ -391,7 +387,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 32
         Width = 80
-        OnClick = edtNomeClick
         TabOrder = 4
       end
       object edtBairro: TEdit
@@ -400,7 +395,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 32
         Width = 328
-        OnClick = edtNomeClick
         TabOrder = 5
       end
       object edtMunicipio: TEdit
@@ -409,7 +403,6 @@ object frmAltFornecedor: TfrmAltFornecedor
         Height = 23
         Top = 61
         Width = 306
-        OnClick = edtNomeClick
         TabOrder = 6
       end
       object cbxUf: TComboBox
@@ -448,7 +441,6 @@ object frmAltFornecedor: TfrmAltFornecedor
           'SE'
           'TO'
         )
-        OnClick = edtNomeClick
         TabOrder = 7
       end
     end

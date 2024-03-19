@@ -91,7 +91,10 @@ begin
       if (ctrl is TEdit) or (ctrl is TCurrencyEdit) or (ctrl is TComboBox) or (ctrl is TRadioGroup) then
       begin
         if ctrl is TRadioGroup then
-          Result.ValoresAntigos.Values[ctrl.Name] := IntToStr(TRadioGroup(ctrl).ItemIndex)
+        begin
+          Result.ValoresAntigos.Values[ctrl.Name] := IntToStr(TRadioGroup(ctrl).ItemIndex);
+           Result.ValoresOriginais.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
+        end
         else
         begin
           Result.ValoresAntigos.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
