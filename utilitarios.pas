@@ -57,6 +57,21 @@ begin
     begin
       if ((AForm.Components[i] as TPanel).Tag = 1) then
         (AForm.Components[i] as TPanel).Enabled := Ativado
+    end
+    else if AForm.Components[i] is TComboBox then
+    begin
+      if ((AForm.Components[i] as TComboBox).Tag = 1) then
+        (AForm.Components[i] as TComboBox).Enabled := not Ativado
+    end
+    else if AForm.Components[i] is TGroupBox then
+    begin
+      if ((AForm.Components[i] as TGroupBox).Tag = 1) then
+        (AForm.Components[i] as TGroupBox).Enabled := not Ativado
+    end
+    else if AForm.Components[i] is TRadioGroup then
+    begin
+      if ((AForm.Components[i] as TRadioGroup).Tag = 1) then
+        (AForm.Components[i] as TRadioGroup).Enabled := not Ativado
     end;
   end;
 end;
@@ -73,10 +88,15 @@ begin
     for i := 0 to AForm.ComponentCount - 1 do
     begin
       ctrl := TControl(AForm.Components[i]);
-      if (ctrl is TEdit) or (ctrl is TCurrencyEdit) then
+      if (ctrl is TEdit) or (ctrl is TCurrencyEdit) or (ctrl is TComboBox) or (ctrl is TRadioGroup) then
       begin
-        Result.ValoresAntigos.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
-        Result.ValoresOriginais.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
+        if ctrl is TRadioGroup then
+          Result.ValoresAntigos.Values[ctrl.Name] := IntToStr(TRadioGroup(ctrl).ItemIndex)
+        else
+        begin
+          Result.ValoresAntigos.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
+          Result.ValoresOriginais.Values[ctrl.Name] := TCustomEdit(ctrl).Text;
+        end;
       end;
     end;
   except
@@ -94,14 +114,18 @@ begin
     for i := 0 to AForm.ComponentCount - 1 do
     begin
       ctrl := TControl(AForm.Components[i]);
-      if (ctrl is TEdit) or (ctrl is TCurrencyEdit) then
+      if (ctrl is TEdit) or (ctrl is TCurrencyEdit) or (ctrl is TComboBox) or (ctrl is TRadioGroup)then
       begin
         if Listas.ValoresAntigos.IndexOfName(ctrl.Name) <> -1 then
         begin
           if ctrl is TEdit then
             TCustomEdit(ctrl).Text := Listas.ValoresAntigos.Values[ctrl.Name]
           else if ctrl is TCurrencyEdit then
-            TCurrencyEdit(ctrl).Value := StrToCurr(Listas.ValoresAntigos.Values[ctrl.Name]);
+            TCurrencyEdit(ctrl).Value := StrToCurr(Listas.ValoresAntigos.Values[ctrl.Name])
+          else if ctrl is TComboBox then
+            TCustomComboBox(ctrl).Text := Listas.ValoresAntigos.Values[ctrl.Name]
+          else if ctrl is TRadioGroup then
+            TCustomRadioGroup(ctrl).ItemIndex := StrToIntDef(Listas.ValoresAntigos.Values[ctrl.Name], -1);
         end;
       end;
     end;

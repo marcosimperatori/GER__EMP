@@ -252,6 +252,8 @@ begin
       rgpTipoPessoa.ItemIndex:= 0
     else
       rgpTipoPessoa.ItemIndex:= 1;
+
+    idRegistro := FieldByName('id').AsInteger;
   end;
 end;
 

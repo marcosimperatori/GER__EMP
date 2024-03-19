@@ -796,6 +796,7 @@ object frmAltProdutos: TfrmAltProdutos
     Height = 23
     Top = 85
     Width = 114
+    Alignment = taRightJustify
     Color = 12902911
     ReadOnly = True
     TabOrder = 4
@@ -816,6 +817,7 @@ object frmAltProdutos: TfrmAltProdutos
     Height = 23
     Top = 136
     Width = 114
+    Alignment = taRightJustify
     Color = 12902911
     ReadOnly = True
     TabOrder = 7

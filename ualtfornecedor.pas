@@ -64,17 +64,22 @@ type
     TabSheet2: TTabSheet;
     procedure btnAnteriorClick(Sender: TObject);
     procedure btnAplicarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPrimeiroClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
+    procedure edtCpfCnpjKeyPress(Sender: TObject; var Key: char);
+    procedure edtNomeClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     FEdicao: boolean;
     FId: Integer;
     FQuery: TZQuery;
+    FListas: TListas;
     function CpfJaExiste(AInscricao: String): boolean;
+    procedure ManipularCampos;
     function Salvar: boolean;
     procedure LocalizarRegistro(Codigo: Integer);
     procedure CarregarDados;
@@ -100,12 +105,9 @@ uses
 procedure TfrmAltFornecedor.FormShow(Sender: TObject);
 begin
   if modoEdicao then
-  begin
     LocalizarRegistro(idRegistro);
-    panNavegacao.Enabled := true;
-  end
-  else
-    panNavegacao.Enabled := false;
+
+  HabilitarDesabilitarControles(Self);
 end;
 
 function TfrmAltFornecedor.CpfJaExiste(AInscricao: String): boolean;
@@ -204,6 +206,17 @@ begin
   LocalizarRegistro(bufFornecedor.FieldByName('id').AsInteger);
 end;
 
+procedure TfrmAltFornecedor.edtCpfCnpjKeyPress(Sender: TObject; var Key: char);
+begin
+  if not (Key in ['0'..'9', #8, #13]) then
+    Key := #0;
+end;
+
+procedure TfrmAltFornecedor.edtNomeClick(Sender: TObject);
+begin
+  ManipularCampos;
+end;
+
 procedure TfrmAltFornecedor.FormCreate(Sender: TObject);
 begin
   lblCodigo.Caption :='';
@@ -236,6 +249,14 @@ begin
 
   if resultado then
     ModalResult:= mrOK;
+end;
+
+procedure TfrmAltFornecedor.btnCancelarClick(Sender: TObject);
+begin
+  HabilitarDesabilitarControles(self);
+  btnAplicar.Kind    := bkClose;
+  btnAplicar.Caption := '&Fechar';
+  RestaurarValores(self,FListas);
 end;
 
 procedure TfrmAltFornecedor.btnInserirClick(Sender: TObject);
@@ -285,6 +306,8 @@ begin
       rgpTipoPessoa.ItemIndex:= 0
     else
       rgpTipoPessoa.ItemIndex:= 1;
+
+    idRegistro := FieldByName('id').AsInteger;
   end;
   ListarTelefones(bufFornecedor.FieldByName('id').AsInteger);
 end;
@@ -339,6 +362,16 @@ begin
     end;
   end;
 end;
+
+
+procedure TfrmAltFornecedor.ManipularCampos;
+begin
+  HabilitarDesabilitarControles(self, false);
+  btnAplicar.Kind    := bkOK;
+  btnAplicar.Caption := '&Aplicar';
+  FListas := PreencherListas(self);
+end;
+
 
 end.
 

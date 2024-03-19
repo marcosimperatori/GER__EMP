@@ -59,7 +59,6 @@ type
     procedure LocalizarRegistro(Codigo: Integer);
     procedure CarregarDados;
     procedure ManipularCampos;
-    procedure GuardaValoresAntigos;
   public
     property idRegistro: Integer read FId write FId;
     property modoEdicao: boolean read FEdicao write FEdicao;
@@ -217,12 +216,6 @@ begin
   FListas := PreencherListas(self);
 end;
 
-procedure TfrmAltProdutos.GuardaValoresAntigos;
-var
-  ValoresAntigos, ValoresOriginais: TStringList;
-begin
-
-end;
 
 end.
 
