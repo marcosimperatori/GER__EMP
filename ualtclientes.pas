@@ -23,7 +23,9 @@ type
     btnProximo: TSpeedButton;
     btnUltimo: TSpeedButton;
     bufClientes: TBufDataset;
+    bufTelefones: TBufDataset;
     cbxUf: TComboBox;
+    dsTelefones: TDataSource;
     DBText2: TLabel;
     edtMunicipio: TEdit;
     edtLogradouro: TEdit;
@@ -62,19 +64,25 @@ type
     TabSheet2: TTabSheet;
     procedure btnAnteriorClick(Sender: TObject);
     procedure btnAplicarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
     procedure btnPrimeiroClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
+    procedure edtApelidoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     FEdicao: boolean;
     FId: Integer;
     FQuery: TZQuery;
+    FListas: TListas;
     function CpfJaExiste(AInscricao: String): boolean;
+    procedure ListarTelefones(idRegistro: Integer);
+    procedure ManipularCampos;
     function Salvar: boolean;
     procedure LocalizarRegistro(Codigo: Integer);
     procedure CarregarDados;
+    procedure SalvarTelefones(qry: Tzquery; IdRegistro: Integer);
   public
     property idRegistro: Integer read FId write FId;
     property modoEdicao: boolean read FEdicao write FEdicao;
@@ -92,12 +100,9 @@ implementation
 procedure TfrmAltClientes.FormShow(Sender: TObject);
 begin
   if modoEdicao then
-  begin
     LocalizarRegistro(idRegistro);
-    panNavegacao.Enabled := true;
-  end
-  else
-    panNavegacao.Enabled := false;
+
+  HabilitarDesabilitarControles(Self);
 end;
 
 function TfrmAltClientes.CpfJaExiste(AInscricao: String): boolean;
@@ -192,6 +197,11 @@ begin
   LocalizarRegistro(bufClientes.FieldByName('id').AsInteger);
 end;
 
+procedure TfrmAltClientes.edtApelidoClick(Sender: TObject);
+begin
+  ManipularCampos;
+end;
+
 procedure TfrmAltClientes.FormCreate(Sender: TObject);
 begin
   lblCodigo.Caption :='';
@@ -227,6 +237,14 @@ begin
     ModalResult:= mrOK;
 end;
 
+procedure TfrmAltClientes.btnCancelarClick(Sender: TObject);
+begin
+  HabilitarDesabilitarControles(self);
+  btnAplicar.Kind    := bkClose;
+  btnAplicar.Caption := '&Fechar';
+  RestaurarValores(self,FListas);
+end;
+
 procedure TfrmAltClientes.LocalizarRegistro(Codigo: Integer);
 begin
   bufClientes.Locate('id',Codigo,[]);
@@ -256,6 +274,68 @@ begin
     idRegistro := FieldByName('id').AsInteger;
   end;
 end;
+
+
+procedure TfrmAltClientes.ListarTelefones(idRegistro: Integer);
+var
+  qr: TZQuery;
+begin
+  qr := NovaQuery;
+  with qr do
+  begin
+    sql.text := 'select t.* from telefones t where t.id_pessoa=:idPessoa';
+    ParamByName('idpessoa').AsInteger:= idRegistro;
+    Open;
+  end;
+
+  with bufTelefones do
+  begin
+    DisableControls;
+    clear;
+    CopyFromDataset(qr);
+    First;
+    EnableControls;
+  end;
+  qr.Free;
+end;
+
+procedure TfrmAltClientes.SalvarTelefones(qry: Tzquery;IdRegistro: Integer);
+begin
+  with qry do
+  begin
+    with bufTelefones do
+    begin
+      first;
+      while not eof do
+      begin
+        qry.sql.text := inserirTelefone;
+
+        if FieldByName('id').AsInteger = 0 then
+          qry.ParamByName('id').Clear
+        else
+          qry.ParamByName('id').AsInteger := FieldByName('id').AsInteger;
+
+        qry.ParamByName('pessoa').AsInteger   := IdRegistro;
+        qry.ParamByName('area').AsString      := FieldByName('area').AsString;
+        qry.ParamByName('numero').AsString    := FieldByName('numero').AsString;
+        qry.ParamByName('aparelho').AsString  := FieldByName('aparelho').AsString;
+        qry.ParamByName('descricao').AsString := FieldByName('descricao').AsString;
+        qry.ExecSQL;
+        next;
+      end;
+    end;
+  end;
+end;
+
+
+procedure TfrmAltClientes.ManipularCampos;
+begin
+  HabilitarDesabilitarControles(self, false);
+  btnAplicar.Kind    := bkOK;
+  btnAplicar.Caption := '&Aplicar';
+  FListas := PreencherListas(self);
+end;
+
 
 end.
 

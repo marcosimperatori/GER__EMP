@@ -335,7 +335,6 @@ object frmAltFornecedor: TfrmAltFornecedor
           Width = 80
           Caption = 'Inserir'
           Flat = True
-          ImageIndex = 2
           OnClick = btnInserirClick
         end
         object btnEditar: TSpeedButton

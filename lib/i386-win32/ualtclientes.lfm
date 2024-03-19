@@ -1,7 +1,7 @@
 object frmAltClientes: TfrmAltClientes
-  Left = 972
+  Left = 1020
   Height = 382
-  Top = 327
+  Top = 356
   Width = 686
   BorderStyle = bsDialog
   Caption = 'Cadastro Cliente'
@@ -34,9 +34,10 @@ object frmAltClientes: TfrmAltClientes
       Width = 91
       Anchors = [akTop, akRight]
       Cancel = True
-      Caption = '&Cancelar'
+      DefaultCaption = True
       Kind = bkCancel
       ModalResult = 2
+      OnClick = btnCancelarClick
       TabOrder = 0
     end
     object btnAplicar: TBitBtn
@@ -45,14 +46,14 @@ object frmAltClientes: TfrmAltClientes
       Top = 10
       Width = 91
       Anchors = [akTop, akRight]
-      Caption = '&Aplicar'
-      Default = True
-      Kind = bkYes
-      ModalResult = 6
+      DefaultCaption = True
+      Kind = bkClose
+      ModalResult = 11
       OnClick = btnAplicarClick
       TabOrder = 1
     end
     object panNavegacao: TPanel
+      Tag = 1
       Left = 0
       Height = 40
       Top = 8
@@ -153,10 +154,12 @@ object frmAltClientes: TfrmAltClientes
         ParentColor = False
       end
       object edtNome: TEdit
+        Tag = 1
         Left = 96
         Height = 23
         Top = 29
         Width = 288
+        OnClick = edtApelidoClick
         TabOrder = 1
       end
       object edtCodigo: TEdit
@@ -169,20 +172,25 @@ object frmAltClientes: TfrmAltClientes
         TabOrder = 0
       end
       object edtApelido: TEdit
+        Tag = 1
         Left = 8
         Height = 23
         Top = 80
         Width = 320
+        OnClick = edtApelidoClick
         TabOrder = 2
       end
       object edtCpfCnpj: TEdit
+        Tag = 1
         Left = 8
         Height = 23
         Top = 128
         Width = 128
+        OnClick = edtApelidoClick
         TabOrder = 3
       end
       object rgpTipoPessoa: TRadioGroup
+        Tag = 1
         Left = 8
         Height = 56
         Top = 176
@@ -268,6 +276,7 @@ object frmAltClientes: TfrmAltClientes
         ParentColor = False
       end
       object GroupBox1: TGroupBox
+        Tag = 1
         Left = 8
         Height = 130
         Top = 120
@@ -283,6 +292,7 @@ object frmAltClientes: TfrmAltClientes
           Width = 536
           Color = clWindow
           Columns = <>
+          DataSource = dsTelefones
           TabOrder = 0
         end
         object btnInserir: TSpeedButton
@@ -314,48 +324,61 @@ object frmAltClientes: TfrmAltClientes
         end
       end
       object edtLogradouro: TEdit
+        Tag = 1
         Left = 78
         Height = 23
         Top = 5
         Width = 328
+        OnClick = edtApelidoClick
         TabOrder = 1
       end
       object edtNumero: TEdit
+        Tag = 1
         Left = 464
         Height = 23
         Top = 5
         Width = 41
+        OnChangeBounds = edtApelidoClick
         TabOrder = 2
       end
       object edtComplemento: TEdit
+        Tag = 1
         Left = 592
         Height = 23
         Top = 5
         Width = 80
+        OnChangeBounds = edtApelidoClick
         TabOrder = 3
       end
       object edtCep: TEdit
+        Tag = 1
         Left = 440
         Height = 23
         Top = 32
         Width = 80
+        OnClick = edtApelidoClick
         TabOrder = 4
       end
       object edtBairro: TEdit
+        Tag = 1
         Left = 78
         Height = 23
         Top = 32
         Width = 328
+        OnClick = edtApelidoClick
         TabOrder = 5
       end
       object edtMunicipio: TEdit
+        Tag = 1
         Left = 78
         Height = 23
         Top = 61
         Width = 306
+        OnClick = edtApelidoClick
         TabOrder = 6
       end
       object cbxUf: TComboBox
+        Tag = 1
         Left = 432
         Height = 23
         Top = 61
@@ -390,6 +413,7 @@ object frmAltClientes: TfrmAltClientes
           'SE'
           'TO'
         )
+        OnChangeBounds = edtApelidoClick
         TabOrder = 7
       end
     end
@@ -524,5 +548,15 @@ object frmAltClientes: TfrmAltClientes
     FieldDefs = <>
     Left = 407
     Top = 244
+  end
+  object dsTelefones: TDataSource
+    DataSet = bufTelefones
+    Left = 358
+    Top = 169
+  end
+  object bufTelefones: TBufDataset
+    FieldDefs = <>
+    Left = 436
+    Top = 177
   end
 end
