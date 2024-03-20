@@ -9,10 +9,14 @@ uses
 
 const
 
-  //----------------  query´s clientes --------------------------
-  listarClientes = 'SELECT * FROM pessoas WHERE cliente=1';
+  //----------------  query´s pessoas --------------------------
+  listarClientes    = 'SELECT * FROM pessoas WHERE cliente=1';
+  listarClientesFis = 'SELECT * FROM pessoas WHERE cliente=1 AND tipo_pessoa=';
+  listarClientesJur = 'SELECT * FROM pessoas WHERE cliente=1 AND tipo_pessoa=';
 
-  listarFornecedores = 'SELECT p.* FROM pessoas p WHERE p.fornecedor=1';
+  listarFornecedores    = 'SELECT p.* FROM pessoas p WHERE p.fornecedor=1';
+  listarFornecedoresFis = 'SELECT p.* FROM pessoas p WHERE p.fornecedor=1 AND tipo_pessoa=';
+  listarFornecedoresJur = 'SELECT p.* FROM pessoas p WHERE p.fornecedor=1 AND tipo_pessoa=';
 
   listarPessoas = 'SELECT * FROM pessoas';
 
@@ -63,6 +67,10 @@ const
     'preco_venda_promocao=:pvp WHERE id=:id';
 
   deletarProduto = 'DELETE FROM produtos p WHERE p.id=:id';
+
+  //----------------  query´s pedidos --------------------------
+
+  listarCompras = 'select
 
 
 implementation

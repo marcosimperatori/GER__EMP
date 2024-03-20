@@ -36,7 +36,6 @@ object frmAltClientes: TfrmAltClientes
       Cancel = True
       DefaultCaption = True
       Kind = bkCancel
-      ModalResult = 2
       OnClick = btnCancelarClick
       TabOrder = 0
     end
@@ -460,11 +459,12 @@ object frmAltClientes: TfrmAltClientes
       ParentFont = False
     end
     object lblCodigo: TLabel
-      Left = 8
+      Left = 31
       Height = 19
       Top = 17
-      Width = 64
+      Width = 40
       Alignment = taRightJustify
+      AutoSize = False
       Caption = 'lblCodigo'
       Font.CharSet = ANSI_CHARSET
       Font.Color = clGreen

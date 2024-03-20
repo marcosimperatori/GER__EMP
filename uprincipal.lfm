@@ -1,14 +1,13 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 938
+  Left = 1001
   Height = 125
-  Top = 373
+  Top = 354
   Width = 736
   BorderStyle = bsDialog
   Caption = 'Gerenciador Empresarial'
   ClientHeight = 125
   ClientWidth = 736
   Color = 14803937
-  OnCreate = FormCreate
   LCLVersion = '2.2.2.0'
   object ToolBar1: TToolBar
     Left = 0
@@ -40,6 +39,7 @@ object frmPrincipal: TfrmPrincipal
       Left = 173
       Top = 2
       Caption = 'Pedidos'
+      DropdownMenu = ppmPedidos
       ImageIndex = 4
       Style = tbsDropDown
     end
@@ -176,11 +176,19 @@ object frmPrincipal: TfrmPrincipal
     end
     object mniTodasAsPessoas: TMenuItem
       Caption = 'Todas as Pessoas'
+      OnClick = mniTodasAsPessoasClick
     end
   end
   object ppmPedidos: TPopupMenu
     Left = 256
     Top = 65
+    object mniCompra: TMenuItem
+      Caption = 'Compra'
+      OnClick = mniCompraClick
+    end
+    object mniVenda: TMenuItem
+      Caption = 'Venda'
+    end
   end
   object ppmRelatorios: TPopupMenu
     Left = 353
@@ -191,7 +199,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 65
   end
   object frTNPDFExport1: TfrTNPDFExport
-    Left = 587
-    Top = 36
+    Left = 584
+    Top = 65
   end
 end

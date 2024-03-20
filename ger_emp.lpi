@@ -57,9 +57,9 @@
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
-        <Filename Value="ualtfornecedor.pas"/>
+        <Filename Value="ualtpessoas.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmAltFornecedor"/>
+        <ComponentName Value="frmAltPessoa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -79,9 +79,9 @@
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="ucadfornecedores.pas"/>
+        <Filename Value="upedidos.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmFornecedores"/>
+        <ComponentName Value="frmPedidos"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -114,9 +114,9 @@
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
-        <Filename Value="ucadprodutos.pas"/>
+        <Filename Value="upessoas.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmProdutos"/>
+        <ComponentName Value="frmPessoas"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
