@@ -78,9 +78,9 @@ const
 
   listarPedidos = 'SELECT s.id as idpessoa, s.nome, p.id,p.emissao,p.valor_total,' +
     'p.tipo,p.processado,p.data_proces,p.data_estorno' +
-    ' FROM pedido p JOIN pessoas s ON s.id=p.id_pessoa WHERE p.tipo=:tipo';
+    ' FROM pedidos p JOIN pessoas s ON s.id=p.id_pessoa WHERE p.tipo=:tipo';
 
-  inserePedido = 'INSERT INTO pedidos(id_pessoa,tipo,emissao,processado,obs,cpf_cnpj,valor_total)' +
+  inserePedido = 'INSERT INTO pedidos(id_pessoa,tipo,emissao,processado,observacao,cpf_cnpj,valor_total)' +
     ' VALUES(:pessoa,:tipo,:emissao,:processado,:obs,:cpfcnpj,:valor) RETURNING ID';
 
   atualizaPedido = 'UPDATE pedidos SET id_pessoa=:pessoa,tipo=:tipo,emissao=:emissao,' +

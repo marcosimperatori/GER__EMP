@@ -51,12 +51,14 @@ type
     tbtInserir: TToolButton;
     tbtEditar: TToolButton;
     tbtDeletar: TToolButton;
+    procedure BitBtn2Click(Sender: TObject);
     procedure btnPesqPessoaClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tbtInserirClick(Sender: TObject);
   private
+    FEdicao: boolean;
     FQuery: TZQuery;
     FTipoPed: String;
     FBufItensPedido: TBufDataset;
@@ -70,6 +72,7 @@ type
   public
     property tipo_Pedido: String read FTipoPed write FTipoPed;
     property ItensPedido: TBufDataset read FBufItensPedido write FBufItensPedido;
+    property Edicao: boolean read FEdicao write FEdicao;
   end;
 
 var
@@ -92,6 +95,18 @@ begin
     edtTipo.Text := 'Venda';
 
   dtpEmissao.Date := Now;
+
+  if Edicao then
+  begin
+    btnProcessar.Enabled := true;
+    btnAplicar.Enabled   := true;
+  end
+  else
+  begin
+    lblCodigo.Caption := '';
+    lblNome.Caption   :='';
+  end;
+
 end;
 
 procedure TfrmAltCompra.FormCreate(Sender: TObject);
@@ -112,6 +127,27 @@ begin
     end;
   finally
     free;
+  end;
+end;
+
+procedure TfrmAltCompra.BitBtn2Click(Sender: TObject);
+begin
+  if Trim(edtCodPessoa.text) = '' then
+  begin
+    MessageDlg('Informe o fornecedor!', mtWarning, [mbOK],0);
+    exit;
+  end;
+
+  if RxDBGrid1.DataSource.DataSet.IsEmpty then
+  begin
+    MessageDlg('Informe ao menos um produto!', mtWarning, [mbOK],0);
+    exit;
+  end;
+
+  if Salvar then
+  begin
+    MessageDlg('Pedido de compra gerado com sucesso.', mtInformation, [mbOK],0);
+    ModalResult := mrOK;
   end;
 end;
 

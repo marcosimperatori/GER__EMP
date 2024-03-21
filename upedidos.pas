@@ -101,7 +101,7 @@ begin
     if ShowModal = mrOK then
     begin
       qrConsulta.SQL.Text:= listarPedidos;
-      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
+      qrConsulta.ParamByName('tipo').AsString := tipo_Pedido;
       actAtualizar.Execute;
     end;
   finally
@@ -164,7 +164,7 @@ begin
     if ShowModal = mrOK then
     begin
       qrConsulta.SQL.Text:= listarPedidos;
-      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
+      qrConsulta.ParamByName('tipo').AsString := tipo_Pedido;
       actAtualizar.Execute;
     end;
   finally
@@ -174,7 +174,8 @@ end;
 
 procedure TfrmPedidos.actAtualizarExecute(Sender: TObject);
 begin
-  qrConsulta.SQL.Text:= listarFornecedores;
+  qrConsulta.SQL.Text:= listarPedidos;
+  qrConsulta.ParamByName('tipo').AsString := TipoPedido;
   Listar;
 end;
 

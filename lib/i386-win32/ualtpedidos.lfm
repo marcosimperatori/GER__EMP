@@ -97,6 +97,8 @@ object frmAltPedidos: TfrmAltPedidos
     Top = 37
     Width = 85
     Alignment = taCenter
+    Color = clMenu
+    ReadOnly = True
     TabOrder = 0
   end
   object edtNomeProduto: TEdit
@@ -104,6 +106,8 @@ object frmAltPedidos: TfrmAltPedidos
     Height = 23
     Top = 37
     Width = 305
+    Color = clMenu
+    ReadOnly = True
     TabOrder = 1
   end
   object cetValorUnit: TCurrencyEdit

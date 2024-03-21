@@ -204,6 +204,8 @@ object frmAltCompra: TfrmAltCompra
           Height = 23
           Top = 24
           Width = 224
+          Color = clMenu
+          ReadOnly = True
           TabOrder = 1
         end
         object btnPesqPessoa: TSpeedButton
@@ -359,6 +361,8 @@ object frmAltCompra: TfrmAltCompra
           Height = 23
           Top = 80
           Width = 164
+          Color = clMenu
+          ReadOnly = True
           TabOrder = 2
         end
       end
@@ -623,6 +627,7 @@ object frmAltCompra: TfrmAltCompra
       Default = True
       Kind = bkOK
       ModalResult = 1
+      OnClick = BitBtn2Click
       TabOrder = 1
     end
     object btnAplicar: TBitBtn
@@ -631,6 +636,7 @@ object frmAltCompra: TfrmAltCompra
       Top = 8
       Width = 90
       Caption = 'Aplicar'
+      Enabled = False
       Kind = bkYesToAll
       TabOrder = 2
     end
@@ -640,6 +646,7 @@ object frmAltCompra: TfrmAltCompra
       Top = 8
       Width = 90
       Caption = '&Processar'
+      Enabled = False
       Kind = bkRetry
       TabOrder = 3
     end

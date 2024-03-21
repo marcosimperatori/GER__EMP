@@ -141,6 +141,7 @@
         <Filename Value="upesqprodutos.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPesqProdutos"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
