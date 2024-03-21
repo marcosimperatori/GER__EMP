@@ -188,6 +188,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object mniVenda: TMenuItem
       Caption = 'Venda'
+      OnClick = mniVendaClick
     end
   end
   object ppmRelatorios: TPopupMenu

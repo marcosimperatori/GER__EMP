@@ -1,0 +1,683 @@
+object frmAltCompra: TfrmAltCompra
+  Left = 1025
+  Height = 498
+  Top = 240
+  Width = 745
+  BorderStyle = bsDialog
+  Caption = 'Cadastro de Pedido'
+  ClientHeight = 498
+  ClientWidth = 745
+  Color = 14803937
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Calibri'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 745
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 745
+    TabOrder = 0
+    object lblCodigo: TLabel
+      Left = 49
+      Height = 19
+      Top = 14
+      Width = 5
+      Caption = '-'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -16
+      Font.Name = 'Calibri'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 75
+      Height = 19
+      Top = 14
+      Width = 8
+      Caption = '|'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -16
+      Font.Name = 'Calibri'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblNome: TLabel
+      Left = 88
+      Height = 19
+      Top = 14
+      Width = 5
+      Caption = '-'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -16
+      Font.Name = 'Calibri'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 396
+    Top = 50
+    Width = 745
+    ActivePage = TabSheet2
+    Align = alClient
+    TabIndex = 1
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Cabeçalho'
+      ClientHeight = 368
+      ClientWidth = 737
+      object GroupBox1: TGroupBox
+        Left = 16
+        Height = 81
+        Top = 8
+        Width = 384
+        Caption = 'Informações do pedido'
+        ClientHeight = 61
+        ClientWidth = 380
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 20
+          Height = 15
+          Top = 9
+          Width = 41
+          Caption = 'Código:'
+          ParentColor = False
+        end
+        object Label5: TLabel
+          Left = 120
+          Height = 15
+          Top = 9
+          Width = 27
+          Caption = 'Tipo:'
+          ParentColor = False
+        end
+        object Label6: TLabel
+          Left = 230
+          Height = 15
+          Top = 9
+          Width = 91
+          Caption = 'Data de Emissão'
+          ParentColor = False
+        end
+        object edtCodigo: TEdit
+          Left = 20
+          Height = 23
+          Top = 24
+          Width = 80
+          Color = clMenu
+          Enabled = False
+          TabOrder = 0
+        end
+        object edtTipo: TEdit
+          Left = 120
+          Height = 23
+          Top = 24
+          Width = 80
+          Color = clMenu
+          Enabled = False
+          TabOrder = 1
+        end
+        object dtpEmissao: TDateTimePicker
+          Left = 230
+          Height = 23
+          Top = 24
+          Width = 91
+          CenturyFrom = 1941
+          MaxDate = 2958465
+          MinDate = -53780
+          TabOrder = 2
+          TrailingSeparator = False
+          TextForNullDate = 'NULL'
+          LeadingZeros = True
+          Kind = dtkDate
+          TimeFormat = tf24
+          TimeDisplay = tdHMS
+          DateMode = dmComboBox
+          Date = 45371
+          Time = 0.764791631947446
+          UseDefaultSeparators = True
+          HideDateTimeParts = []
+          MonthNames = 'Long'
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 16
+        Height = 136
+        Top = 104
+        Width = 384
+        Caption = 'Destinatário / Remetente'
+        ClientHeight = 116
+        ClientWidth = 380
+        TabOrder = 1
+        object Label7: TLabel
+          Left = 20
+          Height = 15
+          Top = 9
+          Width = 41
+          Caption = 'Código:'
+          ParentColor = False
+        end
+        object edtCodPessoa: TEdit
+          Left = 20
+          Height = 23
+          Top = 24
+          Width = 80
+          Alignment = taCenter
+          Color = clMenu
+          Enabled = False
+          TabOrder = 0
+        end
+        object Label8: TLabel
+          Left = 112
+          Height = 15
+          Top = 9
+          Width = 31
+          Caption = 'Nome'
+          ParentColor = False
+        end
+        object edtNome: TEdit
+          Left = 112
+          Height = 23
+          Top = 24
+          Width = 224
+          TabOrder = 1
+        end
+        object btnPesqPessoa: TSpeedButton
+          Left = 344
+          Height = 29
+          Top = 21
+          Width = 32
+          Flat = True
+          Glyph.Data = {
+            36100000424D3610000000000000360000002800000020000000200000000100
+            2000000000000010000064000000640000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B6495B54B44BF354B54AFF54B54AFF54B5
+            4AFF54B54AFD54B54AA300000000000000000000000000000000000000000000
+            0000000000000000000053B54AA554B54AFD54B54AFF54B54AFF54B54AFF54B4
+            4BF353B54A590000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B649A754B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFD00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFD54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AA60000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44BAB54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B64AAA0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B6498F54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF00000000000000000000000000000000000000000000
+            0000000000000000000054B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B6498B0000000000000000000000000000000000000000000000000000
+            000000000000000000000000000054B44B5554B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54A7C00FF00010000000000000000000000000000
+            000055AA550353B6498454B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B44B520000000000000000000000000000000000000000000000000000
+            000000000000000000000000000052B6491C54B54AFF54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF52B6493B55B6491554B34C4054B34C4055B6
+            491554B44B3D54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AFF55B54A180000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000054B54AE454B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B5
+            4AE1000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000054B44BAB54B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF53B5
+            4AA8000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000055B54A7254B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B4
+            4B70000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000055B34C3954B54AFF54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFF53B5
+            4A37000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000066CC330554B54AFA54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B54AFA66CC
+            3305000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000055B54AC754B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF54B649C60000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000054B54A8E54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF53B54A8D0000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000054B44B5554B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF55B649540000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000052B6491C54B54AFF54B5
+            4AFF54B54AFF54B54AFF54B54AFF54B44B5553B54A5654B54AFF54B54AFF54B4
+            4B5553B54A5654B54AFF54B54AFF54B54AFF54B54AFF54B54AFF52B6491C0000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000000000000054B5
+            4A7F54B54AC054B54AC054B54AC055B6493F0000000000000000000000000000
+            000054B34C4054B54AC054B54AC054B54AC054B54A7F00000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000000000000054B4
+            4BAB54B54AFF54B54AFF54B54AFF54B44B550000000000000000000000000000
+            000053B54A5654B54AFF54B54AFF54B54AFF54B64AAA00000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000000000000000000000000000000000000000000000000000000054B4
+            4BAB54B54AFF54B54AFF54B54AFF54B44B550000000000000000000000000000
+            000053B54A5654B54AFF54B54AFF54B54AFF54B64AAA00000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000
+          }
+          OnClick = btnPesqPessoaClick
+        end
+        object Label9: TLabel
+          Left = 20
+          Height = 15
+          Top = 64
+          Width = 50
+          Caption = 'CNPJ/CPF'
+          ParentColor = False
+        end
+        object edtCpfCnpj: TEdit
+          Left = 20
+          Height = 23
+          Top = 80
+          Width = 164
+          TabOrder = 2
+        end
+      end
+      object Label10: TLabel
+        Left = 16
+        Height = 15
+        Top = 248
+        Width = 71
+        Caption = 'Observações'
+        ParentColor = False
+      end
+      object mmoObs: TMemo
+        Left = 16
+        Height = 96
+        Top = 264
+        Width = 384
+        TabOrder = 2
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Produtos'
+      ClientHeight = 368
+      ClientWidth = 737
+      object Panel3: TPanel
+        Left = 0
+        Height = 35
+        Top = 333
+        Width = 737
+        Align = alBottom
+        BevelOuter = bvNone
+        ClientHeight = 35
+        ClientWidth = 737
+        TabOrder = 0
+        object ToolBar1: TToolBar
+          Left = 0
+          Height = 35
+          Top = 0
+          Width = 737
+          Align = alBottom
+          ButtonHeight = 30
+          ButtonWidth = 70
+          Caption = 'ToolBar1'
+          EdgeInner = esNone
+          EdgeOuter = esNone
+          Images = imgProdutos
+          List = True
+          ShowCaptions = True
+          TabOrder = 0
+          object tbtInserir: TToolButton
+            Left = 1
+            Top = 0
+            Caption = 'Inserir'
+            ImageIndex = 1
+            OnClick = tbtInserirClick
+          end
+          object tbtEditar: TToolButton
+            Left = 71
+            Top = 0
+            Caption = 'Editar'
+            ImageIndex = 0
+          end
+          object tbtDeletar: TToolButton
+            Left = 141
+            Top = 0
+            Caption = 'Deletar'
+            ImageIndex = 2
+          end
+        end
+      end
+      object RxDBGrid1: TRxDBGrid
+        Left = 0
+        Height = 333
+        Top = 0
+        Width = 737
+        ColumnDefValues.BlobText = '(blob)'
+        TitleButtons = False
+        AutoSort = True
+        Columns = <        
+          item
+            Title.Alignment = taCenter
+            Title.Orientation = toHorizontal
+            Title.Caption = 'iditem'
+            Width = 0
+            Visible = False
+            FieldName = 'iditem'
+            EditButtons = <>
+            Filter.DropDownRows = 0
+            Filter.EmptyValue = '(Empty)'
+            Filter.NotEmptyValue = '(Não está vazio)'
+            Filter.AllValue = '(Todos os valores)'
+            Filter.EmptyFont.Style = [fsItalic]
+            Filter.ItemIndex = -1
+            Footers = <>
+          end        
+          item
+            Alignment = taRightJustify
+            SizePriority = 0
+            Title.Alignment = taRightJustify
+            Title.Orientation = toHorizontal
+            Title.Caption = 'Código do Produto'
+            Width = 80
+            FieldName = 'id'
+            EditButtons = <>
+            Filter.DropDownRows = 0
+            Filter.EmptyValue = '(Empty)'
+            Filter.NotEmptyValue = '(Não está vazio)'
+            Filter.AllValue = '(Todos os valores)'
+            Filter.EmptyFont.Style = [fsItalic]
+            Filter.ItemIndex = -1
+            Footers = <>
+            WordWrap = True
+          end        
+          item
+            Title.Alignment = taLeftJustify
+            Title.Orientation = toHorizontal
+            Title.Caption = 'Desrição do Produto'
+            Width = 464
+            FieldName = 'nome'
+            EditButtons = <>
+            Filter.DropDownRows = 0
+            Filter.EmptyValue = '(Empty)'
+            Filter.NotEmptyValue = '(Não está vazio)'
+            Filter.AllValue = '(Todos os valores)'
+            Filter.EmptyFont.Style = [fsItalic]
+            Filter.ItemIndex = -1
+            Footers = <>
+          end        
+          item
+            SizePriority = 0
+            Title.Alignment = taLeftJustify
+            Title.Orientation = toHorizontal
+            Title.Caption = 'Referência'
+            Width = 100
+            FieldName = 'valor'
+            DisplayFormat = '#,###0.00'
+            EditButtons = <>
+            Filter.DropDownRows = 0
+            Filter.EmptyValue = '(Empty)'
+            Filter.NotEmptyValue = '(Não está vazio)'
+            Filter.AllValue = '(Todos os valores)'
+            Filter.EmptyFont.Style = [fsItalic]
+            Filter.ItemIndex = -1
+            Footers = <>
+          end        
+          item
+            Alignment = taRightJustify
+            SizePriority = 0
+            Title.Alignment = taRightJustify
+            Title.Orientation = toHorizontal
+            Title.Caption = 'Unid.'
+            Width = 60
+            FieldName = 'quantidade'
+            EditButtons = <>
+            Filter.DropDownRows = 0
+            Filter.EmptyValue = '(Empty)'
+            Filter.NotEmptyValue = '(Não está vazio)'
+            Filter.AllValue = '(Todos os valores)'
+            Filter.EmptyFont.Style = [fsItalic]
+            Filter.ItemIndex = -1
+            Footers = <>
+          end>
+        KeyStrokes = <        
+          item
+            Command = rxgcShowFindDlg
+            ShortCut = 16454
+            Enabled = True
+          end        
+          item
+            Command = rxgcShowColumnsDlg
+            ShortCut = 16471
+            Enabled = True
+          end        
+          item
+            Command = rxgcShowFilterDlg
+            ShortCut = 16468
+            Enabled = True
+          end        
+          item
+            Command = rxgcShowSortDlg
+            ShortCut = 16467
+            Enabled = True
+          end        
+          item
+            Command = rxgcShowQuickFilter
+            ShortCut = 16465
+            Enabled = True
+          end        
+          item
+            Command = rxgcHideQuickFilter
+            ShortCut = 16456
+            Enabled = True
+          end        
+          item
+            Command = rxgcSelectAll
+            ShortCut = 16449
+            Enabled = True
+          end        
+          item
+            Command = rxgcDeSelectAll
+            ShortCut = 16429
+            Enabled = True
+          end        
+          item
+            Command = rxgcInvertSelection
+            ShortCut = 16426
+            Enabled = True
+          end        
+          item
+            Command = rxgcOptimizeColumnsWidth
+            ShortCut = 16427
+            Enabled = True
+          end        
+          item
+            Command = rxgcCopyCellValue
+            ShortCut = 16451
+            Enabled = True
+          end>
+        FooterOptions.DrawFullLine = False
+        SearchOptions.QuickSearchOptions = [loCaseInsensitive, loPartialKey]
+        SearchOptions.FromStart = False
+        OptionsRx = [rdgAllowColumnsForm, rdgAllowDialogFind, rdgAllowQuickFilter]
+        Align = alClient
+        AutoFillColumns = True
+        Color = clWindow
+        DrawFullLine = False
+        FocusColor = clRed
+        SelectedColor = clHighlight
+        DataSource = dsItens
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit]
+        ReadOnly = True
+        TabOrder = 1
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 52
+    Top = 446
+    Width = 745
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 52
+    ClientWidth = 745
+    TabOrder = 2
+    object BitBtn1: TBitBtn
+      Left = 648
+      Height = 30
+      Top = 8
+      Width = 90
+      Cancel = True
+      DefaultCaption = True
+      Kind = bkCancel
+      ModalResult = 2
+      TabOrder = 0
+    end
+    object BitBtn2: TBitBtn
+      Left = 556
+      Height = 30
+      Top = 8
+      Width = 90
+      Caption = '&Ok'
+      Default = True
+      Kind = bkOK
+      ModalResult = 1
+      TabOrder = 1
+    end
+    object btnAplicar: TBitBtn
+      Left = 464
+      Height = 30
+      Top = 8
+      Width = 90
+      Caption = 'Aplicar'
+      Kind = bkYesToAll
+      TabOrder = 2
+    end
+    object btnProcessar: TBitBtn
+      Left = 372
+      Height = 30
+      Top = 8
+      Width = 90
+      Caption = '&Processar'
+      Kind = bkRetry
+      TabOrder = 3
+    end
+  end
+  object imgProdutos: TImageList
+    Height = 20
+    Width = 20
+    Left = 496
+    Top = 264
+    Bitmap = {
+      4C7A030000001400000014000000E20200000000000078DA6360181A40545788
+      4D2B5AD5472B4AB516881BF0E004566E160E42E601D585846CF57A0DC4FF09E0
+      1FDE0B9D1A8830AF8E08B30E85EC709F01A47F3B745B341030AF81A079DBBC0E
+      48598B3007ACF22C00F2BF83CC641764E3A1C43C905A215521C6904DBE338162
+      5F5C26DB34506A1E0848994A31056CF39C047227288EC8326FABD72BCF798E2B
+      603878ABD716A0D809A05E3332CD43C10EC72CFBB563B5F9C9F62F9A590CC90C
+      0C1246A26240779E0BDBEC53C823C1CD4CA67987D81BD8F9258C4584145CA4A5
+      81FCEBA070547096D122D5BCF815E1135DBD5DB8A52CC4B543B679DE068A9DD5
+      8C5275095CE956C0AFC4CB428A79407F1D0299C5C4C4C410B0D6ED185C7CB54B
+      8E88063F3329E117B7227C9A83A7BD805487B841C01AF75350F16F615BBC1B04
+      14F958B0C4472D4EF336F9CED68DD26594DF2DA307E43F828A7FF19EED18CD2B
+      C3C38C237EA341F661334F374ED349DE59460D94D66062419B7C2BF964B89970
+      E55F113D4156CD6815ACE515309CE581E63980D233107F0CD9E55AC9A7C8C744
+      49F928EF222D1AB2C53B2070B38F8DB0B6002BC32818AD3F46EB0F62EA8F8F20
+      BDD4A83F60984AE681CAADFDC0327AA756B44A1605E6BD049A512B5A2AA423A2
+      2B240AC4025C629C82649AF7C1AAC35C8F859B05AE0788E329A82F9B59B91045
+      1534CEF79369DE5DA0DF3491F540C57199574BC0BCC3C032431C9FBDC032D79E
+      98FA038A4F02CD9306AACB00B22F4031B85E82F18175823131F5071847AB1600
+      E35114C3BF38C28F1C809E072905C0F0F20062D36154A738A0C70B488C58FDC0
+      F23611B93CF25FE57A053DDD80C490D500712D2EF38072D3482EAF08C42FB08C
+      3C408279FB81FE172590A690CD7B014DFB5FA0F80A548C68F390DD072B77A162
+      07407AD1F2EF010ACCDB8FC5BCFDA3E60DADF8404B7F77806DE61D40FA1D10BF
+      05E27D6031D2CCDB4742FED807ACA34408F8771DB1E6056FF35C0B348F139F79
+      C07E9E04308C0A80B89E40BBB700A476A895C10061DFDF7A
+    }
+  end
+  object dsItens: TDataSource
+    Left = 576
+    Top = 264
+  end
+end

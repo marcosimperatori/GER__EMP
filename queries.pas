@@ -56,6 +56,7 @@ const
 
   idEmUso = 'SELECT p.id FROM PEDIDOS p WHERE p.idpessoa=:id';
 
+
   //----------------  query´s produtos --------------------------
 
   listarProdutos = 'SELECT p.* FROM produtos p';
@@ -68,9 +69,32 @@ const
 
   deletarProduto = 'DELETE FROM produtos p WHERE p.id=:id';
 
+  ProdutoQtdePorId = 'SELECT p.id,p.estoque FROM produtos p WHERE p.id=:id';
+
+  atualizarEstoque = 'UPDATE produtos p SET p.estoque=:qtde WHERE p.id=:id';
+
+
   //----------------  query´s pedidos --------------------------
 
-  listarCompras = 'select
+  listarPedidos = 'SELECT s.id as idpessoa, s.nome, p.id,p.emissao,p.valor_total,' +
+    'p.tipo,p.processado,p.data_proces,p.data_estorno' +
+    ' FROM pedido p JOIN pessoas s ON s.id=p.id_pessoa WHERE p.tipo=:tipo';
+
+  inserePedido = 'INSERT INTO pedidos(id_pessoa,tipo,emissao,processado,obs,cpf_cnpj,valor_total)' +
+    ' VALUES(:pessoa,:tipo,:emissao,:processado,:obs,:cpfcnpj,:valor) RETURNING ID';
+
+  atualizaPedido = 'UPDATE pedidos SET id_pessoa=:pessoa,tipo=:tipo,emissao=:emissao,' +
+    'processado=:processado,obs=:obs,cpf_cnpj=:cpfcnpj,valor_total=:valor WHERE id=:id';
+
+  deletarPedido = 'DELETE FROM pedidos WHERE id=:id';
+
+  inserirItensPedido = 'INSERT INTO pedido_itens(id_pedido,id_produto,quantidade) ' +
+    'VALUES(:pedido,:produto,:qtde)';
+
+  listarItensPedido = 'SELECT p.id,p.nome,p.preco_venda_normal,i.quantidade,i.id as iditem FROM pedido_itens i JOIN produtos p ' +
+    'ON p.id=i.id_produto WHERE i.id_pedido=:idPedido';
+
+  atualizarValorTotalPedidos = 'UPDATE pedidos SET valor_total=:total WHERE id=:id';
 
 
 implementation

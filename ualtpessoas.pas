@@ -51,7 +51,7 @@ type
     edtNome: TEdit;
     edtNumero: TEdit;
     GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
+    gbxRelacionamento: TGroupBox;
     Image1: TImage;
     imgCadastros: TImageList;
     Label1: TLabel;
@@ -160,11 +160,11 @@ begin
       try
         if modoEdicao then
         begin
-          sql.Text := atualizaFornecedor;
+          sql.Text := atualizaPessoa;
           ParamByName('id').AsInteger := idRegistro;
         end
         else
-          sql.Text:= insereFornecedor;
+          sql.Text:= inserePessoa;
 
         ParamByName('nome').asString        := edtNome.Text;
         ParamByName('apelido').asString     := edtApelido.text;
@@ -180,6 +180,16 @@ begin
           ParamByName('pessoa').asString    := 'F'
         else
           ParamByName('pessoa').asString    := 'J';
+
+        if cbxCliente.Checked then
+          ParamByName('cli').AsInteger:= 1
+        else
+          ParamByName('cli').AsInteger:= 0;
+
+        if cbxFornecedor.Checked then
+          ParamByName('for').AsInteger:= 1
+        else
+          ParamByName('for').AsInteger:= 0;
 
         Open;
         codigo:= fields[0].AsInteger;

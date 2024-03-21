@@ -29,6 +29,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="DateTimeCtrls"/>
+      </Item>
+      <Item>
         <PackageName Value="rxnew"/>
       </Item>
       <Item>
@@ -118,6 +121,26 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPessoas"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ualtcompra.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAltCompra"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ualtpedidos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAltPedidos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="upesqprodutos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPesqProdutos"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

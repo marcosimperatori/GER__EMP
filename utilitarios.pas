@@ -14,6 +14,15 @@ type
     ValoresOriginais: TStringList;
   end;
 
+  TItemPedido = record
+    IdProduto: Integer;
+    DescProduto: String;
+    Referencia: String;
+    Unidade: Double;
+    Quantidade: Integer;
+    Valor: Currency;
+  end;
+
 function NovaQuery: TZQuery;
 function StringToDecimal(AValor: String):Double;
 procedure HabilitarDesabilitarControles(AForm: TForm; Ativado: boolean = true);

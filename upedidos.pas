@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, BufDataset, Forms, Controls, Graphics, Dialogs,
-  ComCtrls, ActnList, Menus, DBGrids, ExtCtrls, Buttons, ZDataset;
+  ComCtrls, ActnList, Menus, DBGrids, ExtCtrls, Buttons, RxDBGrid, ZDataset;
 
 type
 
@@ -24,9 +24,9 @@ type
     actSelecionar: TAction;
     actOrdenar: TAction;
     btnSair: TBitBtn;
-    bufCadastros: TBufDataset;
-    dsCadastros: TDataSource;
-    DBGrid1: TDBGrid;
+    bufPedidos: TBufDataset;
+    dsPedidos: TDataSource;
+    imgPedidos: TImageList;
     imgCadastro: TImageList;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -37,6 +37,7 @@ type
     panRodape: TPanel;
     ppmUtilitarios: TPopupMenu;
     ppmCadastros: TPopupMenu;
+    RxDBGrid1: TRxDBGrid;
     Separator1: TMenuItem;
     ToolBar1: TToolBar;
     ToolBar2: TToolBar;
@@ -72,9 +73,11 @@ type
     procedure FormShow(Sender: TObject);
   private
     FQuery: TZQuery;
+    FTipo: String;
     procedure Listar;
   public
     property qrConsulta: TZQuery read FQuery write FQuery;
+    property TipoPedido: String read FTipo write FTipo;
   end;
 
 var
@@ -85,19 +88,20 @@ implementation
 {$R *.lfm}
 
 uses
-  ualtfornecedor, utilitarios, queries, ubusca, uselecionar,
+  ualtcompra, utilitarios, queries, ubusca, uselecionar,
   uprepararelatorio;
 
 { TfrmPedidos }
 
 procedure TfrmPedidos.actInserirRegistroExecute(Sender: TObject);
 begin
-  with TfrmAltFornecedor.create(self) do
+  with TfrmAltCompra.create(self) do
   try
-    modoEdicao := false;
+    tipo_Pedido := TipoPedido;
     if ShowModal = mrOK then
     begin
-      qrConsulta.SQL.Text:= listarFornecedores;
+      qrConsulta.SQL.Text:= listarPedidos;
+      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
       actAtualizar.Execute;
     end;
   finally
@@ -107,7 +111,7 @@ end;
 
 procedure TfrmPedidos.actOrdenarExecute(Sender: TObject);
 begin
-  bufCadastros.IndexFieldNames:='nome';
+  bufPedidos.IndexFieldNames:='nome';
 end;
 
 procedure TfrmPedidos.actRelatoriosExecute(Sender: TObject);
@@ -116,8 +120,8 @@ begin
   try
     NomeTabela:= 'pessoas';
     NomeRelatorio:='rel_pessoas';
-    RegistroAtual:= bufCadastros.FieldByName('id').AsInteger;
-    bufTemporario.CopyFromDataset(bufCadastros);
+    RegistroAtual:= bufPedidos.FieldByName('id').AsInteger;
+    bufTemporario.CopyFromDataset(bufPedidos);
     ShowModal;
   finally
     free;
@@ -131,13 +135,15 @@ begin
     if ShowModal = mrOK then
     begin
       qrConsulta.SQL.Clear;
-      qrConsulta.SQL.Text := (listarFornecedores + sqlComplemento);
+      qrConsulta.SQL.Text := (listarPedidos + sqlComplemento);
+      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
       qrConsulta.ParamByName('chave').AsString:= paramBusca;
     end
     else
     begin
       qrConsulta.SQL.Clear;
-      qrConsulta.SQL.Text := listarFornecedores;
+      qrConsulta.SQL.Text := listarPedidos;
+      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
     end;
 
     actAtualizar.Execute;
@@ -152,14 +158,13 @@ end;
 
 procedure TfrmPedidos.actAlterarExecute(Sender: TObject);
 begin
-  with TfrmAltFornecedor.create(self) do
+  with TfrmAltCompra.create(self) do
   try
-    modoEdicao := true;
-    idRegistro := bufCadastros.FieldByName('id').AsInteger;
-    bufFornecedor.CopyFromDataset(bufCadastros);
+    tipo_Pedido:= TipoPedido;
     if ShowModal = mrOK then
     begin
-      qrConsulta.SQL.Text:= listarFornecedores;
+      qrConsulta.SQL.Text:= listarPedidos;
+      qrConsulta.ParamByName('tipo').AsString := TipoPedido;
       actAtualizar.Execute;
     end;
   finally
@@ -185,9 +190,9 @@ begin
       cValor := Busca;
 
       if cCampo = 'id' then
-        bufCadastros.Locate('id', StrToIntDef(cValor, 0), [])
+        bufPedidos.Locate('id', StrToIntDef(cValor, 0), [])
       else
-        bufCadastros.Locate('nome', cValor, [loPartialKey, loCaseInsensitive]);
+        bufPedidos.Locate('nome', cValor, [loPartialKey, loCaseInsensitive]);
     end;
   finally
     free;
@@ -203,11 +208,12 @@ begin
     try
       qr := NovaQuery;
       qr.SQL.Text:= deletarPessoa;
-      qr.ParamByName('id').AsInteger:= bufCadastros.FieldByName('id').AsInteger;
+      qr.ParamByName('id').AsInteger:= bufPedidos.FieldByName('id').AsInteger;
       try
         qr.ExecSQL;
         MessageDlg('Registro excluído com sucesso!', mtInformation, [mbOK],0);
-        qrConsulta.SQL.Text:= listarFornecedores;
+        qrConsulta.SQL.Text:= listarPedidos;
+        qrConsulta.ParamByName('tipo').AsString := TipoPedido;
         actAtualizar.Execute;
       except
         MessageDlg('Não foi possível excluir o registro!', mtWarning, [mbOK],0);
@@ -230,7 +236,8 @@ end;
 
 procedure TfrmPedidos.FormShow(Sender: TObject);
 begin
-  qrConsulta.SQL.Text:= listarFornecedores;
+  qrConsulta.SQL.Text:= listarPedidos;
+  qrConsulta.ParamByName('tipo').AsString := TipoPedido;
   actAtualizar.Execute;
 end;
 
@@ -245,7 +252,7 @@ begin
     end;
   end;
 
-  with bufCadastros do
+  with bufPedidos do
   begin
     DisableControls;
     Clear;

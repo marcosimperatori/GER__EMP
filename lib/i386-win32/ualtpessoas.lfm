@@ -132,7 +132,7 @@ object frmAltPessoa: TfrmAltPessoa
       ParentFont = False
     end
   end
-  object GroupBox2: TGroupBox
+  object gbxRelacionamento: TGroupBox
     Tag = 1
     Left = 80
     Height = 48

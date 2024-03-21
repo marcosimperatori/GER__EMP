@@ -35,6 +35,7 @@ type
     procedure mniCompraClick(Sender: TObject);
     procedure mniFornecedoresClick(Sender: TObject);
     procedure mniTodasAsPessoasClick(Sender: TObject);
+    procedure mniVendaClick(Sender: TObject);
   private
   public
 
@@ -67,6 +68,7 @@ procedure TfrmPrincipal.mniCompraClick(Sender: TObject);
 begin
   with TfrmPedidos.create(self) do
   try
+    TipoPedido := 'C';
     ShowModal;
   finally
     Free;
@@ -97,6 +99,17 @@ procedure TfrmPrincipal.mniTodasAsPessoasClick(Sender: TObject);
 begin
   with TfrmPessoas.create(self) do
   try
+    ShowModal;
+  finally
+    Free;
+  end;
+end;
+
+procedure TfrmPrincipal.mniVendaClick(Sender: TObject);
+begin
+  with TfrmPedidos.create(self) do
+  try
+    TipoPedido := 'V';
     ShowModal;
   finally
     Free;

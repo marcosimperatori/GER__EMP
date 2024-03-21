@@ -1,0 +1,102 @@
+object frmPesqPessoas: TfrmPesqPessoas
+  Left = 861
+  Height = 394
+  Top = 333
+  Width = 438
+  ActiveControl = edtPesquisa
+  BorderStyle = bsDialog
+  Caption = 'Pesquisar Fornecedores'
+  ClientHeight = 394
+  ClientWidth = 438
+  Color = 14803937
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Calibri'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 438
+    Align = alTop
+    BevelInner = bvLowered
+    ClientHeight = 50
+    ClientWidth = 438
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Height = 15
+      Top = 17
+      Width = 77
+      Caption = 'Pesquisar por'
+      ParentColor = False
+    end
+    object edtPesquisa: TEdit
+      Left = 104
+      Height = 23
+      Top = 14
+      Width = 320
+      OnChange = edtPesquisaChange
+      TabOrder = 0
+      TextHint = ' Digite para pesquisar'
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 344
+    Width = 438
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 438
+    TabOrder = 1
+    object BitBtn1: TBitBtn
+      Left = 320
+      Height = 30
+      Top = 8
+      Width = 107
+      Caption = '&Selecionar'
+      Default = True
+      Kind = bkOK
+      ModalResult = 1
+      TabOrder = 0
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 294
+    Top = 50
+    Width = 438
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'id'
+        Visible = False
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Nome'
+        Width = 405
+        FieldName = 'nome'
+      end>
+    DataSource = dsPessoas
+    TabOrder = 2
+    OnCellClick = DBGrid1CellClick
+  end
+  object dsPessoas: TDataSource
+    DataSet = bufPessoas
+    Left = 69
+    Top = 184
+  end
+  object bufPessoas: TBufDataset
+    FieldDefs = <>
+    Left = 152
+    Top = 184
+  end
+end
