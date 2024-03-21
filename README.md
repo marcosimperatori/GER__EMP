@@ -36,3 +36,5 @@ Abaixo, segue algumas telas da aplicação:
 ![Cadastro de Pedidos](img/cad_pedidos.jpg)
 
 ![Cadastro de Itens de Pedidos](img/itens_pedido.jpg)
+
+![Relatório de Pedidos](img/rel_pedidos.jpg)

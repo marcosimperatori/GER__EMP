@@ -15,6 +15,9 @@ type
   TfrmPrincipal = class(TForm)
     frTNPDFExport1: TfrTNPDFExport;
     imgPrincipal: TImageList;
+    mniRelPedidos: TMenuItem;
+    mniRelProdutos: TMenuItem;
+    mniRelPessoas: TMenuItem;
     mniVenda: TMenuItem;
     mniCompra: TMenuItem;
     mniTodasAsPessoas: TMenuItem;
@@ -34,6 +37,7 @@ type
     procedure mniClientesClick(Sender: TObject);
     procedure mniCompraClick(Sender: TObject);
     procedure mniFornecedoresClick(Sender: TObject);
+    procedure mniRelPedidosClick(Sender: TObject);
     procedure mniTodasAsPessoasClick(Sender: TObject);
     procedure mniVendaClick(Sender: TObject);
   private
@@ -50,7 +54,7 @@ implementation
 {$R *.lfm}
 
 uses
-  ucadclientes, ucadfornecedores, ucadprodutos, upessoas, upedidos;
+  ucadclientes, ucadfornecedores, ucadprodutos, upessoas, upedidos, urelpedidos;
 
 { TfrmPrincipal }
 
@@ -92,6 +96,16 @@ begin
     ShowModal;
   finally
     Free;
+  end;
+end;
+
+procedure TfrmPrincipal.mniRelPedidosClick(Sender: TObject);
+begin
+  with TfrmRelPedido.create(self) do
+  try
+    ShowModal;
+  finally
+    free;
   end;
 end;
 

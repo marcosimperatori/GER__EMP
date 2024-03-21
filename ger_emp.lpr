@@ -13,7 +13,7 @@ uses
   Forms, datetimectrls, rxnew, zcomponent, uprincipal, ualtpessoas, umdl,
   utilitarios, queries, upedidos, ubusca, uselecionar, lazreportpdfexport,
   uprepararelatorio, ualttelefones, upessoas, ualtcompra, ualtpedidos, 
-upesqprodutos
+upesqprodutos, urelpedidos
   { you can add units after this };
 
 {$R *.res}

@@ -1,0 +1,52 @@
+object frmRelPedido: TfrmRelPedido
+  Left = 677
+  Height = 138
+  Top = 376
+  Width = 363
+  BorderStyle = bsDialog
+  Caption = 'Relatório de pedidos'
+  ClientHeight = 138
+  ClientWidth = 363
+  Color = 14803937
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Calibri'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object rgpTipoRel: TRadioGroup
+    Left = 16
+    Height = 81
+    Top = 24
+    Width = 209
+    AutoFill = True
+    Caption = 'Selecione o tipo de relatório'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 61
+    ClientWidth = 205
+    ItemIndex = 0
+    Items.Strings = (
+      'Compra'
+      'Venda'
+    )
+    TabOrder = 0
+  end
+  object btnGerar: TBitBtn
+    Left = 256
+    Height = 30
+    Top = 48
+    Width = 75
+    Caption = 'Gerar'
+    OnClick = btnGerarClick
+    TabOrder = 1
+  end
+end

@@ -96,6 +96,12 @@ const
 
   atualizarValorTotalPedidos = 'UPDATE pedidos SET valor_total=:total WHERE id=:id';
 
+  listaPedidosRelatorio = 'SELECT s.id as idpessoa, s.nome, p.id as idpedido,p.emissao,p.valor_total,' +
+    'p.tipo,p.processado,p.data_proces,p.data_estorno, t.quantidade, d.nome as descprod, d.id as idprod,d.preco_venda_normal, ' +
+    '(d.preco_venda_normal * t.quantidade) as valor' +
+    ' FROM pedidos p JOIN pessoas s ON s.id=p.id_pessoa JOIN PEDIDO_ITENS t ' +
+    'on t.id_pedido=p.id  JOIN produtos d on d.id=t.id_produto WHERE p.tipo=:tipo';
+
 
 implementation
 

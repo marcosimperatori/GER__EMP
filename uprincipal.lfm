@@ -47,6 +47,7 @@ object frmPrincipal: TfrmPrincipal
       Left = 265
       Top = 2
       Caption = 'Relatorios'
+      DropdownMenu = ppmRelatorios
       ImageIndex = 2
       Style = tbsDropDown
     end
@@ -194,6 +195,16 @@ object frmPrincipal: TfrmPrincipal
   object ppmRelatorios: TPopupMenu
     Left = 353
     Top = 65
+    object mniRelPessoas: TMenuItem
+      Caption = 'Pessoas'
+    end
+    object mniRelProdutos: TMenuItem
+      Caption = 'Produtos'
+    end
+    object mniRelPedidos: TMenuItem
+      Caption = 'Pedidos'
+      OnClick = mniRelPedidosClick
+    end
   end
   object ppmConfiguracoes: TPopupMenu
     Left = 456
