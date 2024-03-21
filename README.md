@@ -8,7 +8,8 @@ Por meio desta solução é possível trabalhar a questão dos relacionamentos e
 Foi utilizado a IDE Lazarus e todos os componentes são nativos, com exceção apenas dos componentes:
 
 
-* TCurrencyEdit e TRXDbGrid, ambos da paleta de componentes RX. 
+* TCurrencyEdit e TRXDbGrid, ambos da paleta de componentes RX (disponível em: https://sourceforge.net/p/lazarus-ccr/svn/HEAD/tree/components/rx/trunk/); e
+* Zeos para acesso ao banco de dados (diponível em: https://sourceforge.net/projects/zeoslib/)
 
 
 O banco de dados de dados utilizado é o Firebird 3.0 e o escript para criação do banco encontra-se nos arquivos deste repositório, sob nome: "esquema_bd.sql".
